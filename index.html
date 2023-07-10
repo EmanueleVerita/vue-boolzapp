@@ -102,7 +102,6 @@
 
                             </div>
 
-
                         </main>
 
                     </section>
@@ -114,7 +113,7 @@
 
                             <div class="name-image">
 
-                                <img :src="{{ contacts[activeContact].avatar }}" alt="" class="image-message">
+                                <img :src="contacts[activeContact].avatar" alt="" class="image-message">
 
                                 <p>
                                     {{ contacts[activeContact].name }}
@@ -162,7 +161,7 @@
 
                             <div class="footeer-center">
 
-                                <input type="text" placeholder="Scrivi un messaggio">
+                                <input @keyup.enter="addNewMessage()" type="text" placeholder="Scrivi un messaggio" v-model="newMessage">
 
                             </div>
 

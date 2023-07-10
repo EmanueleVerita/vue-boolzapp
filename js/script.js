@@ -170,7 +170,9 @@ createApp({
                         }
                     ],
                 }
-            ]
+            ],
+
+            newMessage: ' ',
 
         };
     },
@@ -179,7 +181,35 @@ createApp({
         currentActiveContact(index){
 
             this.activeContact = index;
+        },
+
+        addNewMessage(){
+            console.log(this.contacts[this.activeContact].messages);
+
+            this.contacts[this.activeContact].messages.push({
+
+                message: this.newMessage,
+                status: 'sent'
+
+            });
+
+            this.newMessage = ' ';
+
+
+            setTimeout(() => {
+               
+                
+            this.contacts[this.activeContact].messages.push({
+
+                message: 'Ok',
+                status: 'received'
+
+            });
+
+            }, 1000)
+
+
         }
     }
 
-}).mount('#app')
+}).mount('#app');
