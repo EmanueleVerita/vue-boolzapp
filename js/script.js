@@ -6,6 +6,8 @@ createApp({
 
         return{
 
+            activeContact: 0,
+
             contacts: [
                 {
                     name: 'Michele',
@@ -170,6 +172,14 @@ createApp({
                 }
             ]
 
+        };
+    },
+
+    methods: {
+        currentActiveContact(index){
+
+            this.activeContact = index;
         }
     }
+
 }).mount('#app')

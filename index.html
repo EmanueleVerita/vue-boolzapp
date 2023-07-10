@@ -86,7 +86,7 @@
 
                             <div class="contacts-list">
 
-                                <div class="single-contact" v-for="singleContact in contacts">
+                                <div @click="currentActiveContact(i)" class="single-contact" v-for="(singleContact , i) in contacts">
 
                                     <img class="small-image-circle" :src="singleContact.avatar" alt="">
 
@@ -114,10 +114,10 @@
 
                             <div class="name-image">
 
-                                <img src="img/avatar_1.jpg" alt="" class="image-message">
+                                <img :src="{{ contacts[activeContact].avatar }}" alt="" class="image-message">
 
                                 <p>
-                                    Michele
+                                    {{ contacts[activeContact].name }}
                                 </p>
 
                             </div>
@@ -134,13 +134,21 @@
 
                         <main>
 
-                            <div class="mesage-base sent">
-                                Messaggio inviato
-                            </div>
+                            <template v-for="singleMessage in contacts[activeContact].messages">
 
-                            <div class="mesage-base recived">
-                                Messaggio ricevuto
-                            </div>
+                                <div v-if="singleMessage.status == 'sent'" class="mesage-base sent">
+
+                                    {{ singleMessage.message }}
+
+                                </div>
+    
+                                <div v-else class="mesage-base recived">
+
+                                    {{ singleMessage.message }}
+
+                                </div>
+
+                            </template>
 
                         </main>
 

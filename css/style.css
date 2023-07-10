@@ -169,6 +169,7 @@ header{
     min-width: 30%;
     max-width: 60%;
     position: relative;
+    margin-bottom: 15px;
 }
 
 .sent{
